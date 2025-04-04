@@ -1,1 +1,8 @@
 ### gitignore ###
+
+#ignore visual studio project files
+\.vs
+
+#ignore built files
+\out
+
