@@ -12,12 +12,21 @@ project ("LD57")
   endif()
 
 
+#external libraries
+add_subdirectory(${PROJECT_SOURCE_DIR}/lib/glfw)
+add_subdirectory(${PROJECT_SOURCE_DIR}/lib/glad)
+include_directories(${PROJECT_SOURCE_DIR}/lib/miniaudio)
+
+
 #grab all cpp and hpp files in src
 
 file(GLOB_RECURSE SRC_FILES "${CMAKE_SOURCE_DIR}/src/*.hpp" "${CMAKE_SOURCE_DIR}/src/*.cpp")
 
 add_executable (${PROJECT_NAME} ${BUILD_EXECUTABLE_TYPE} ${SRC_FILES})
 
+
+target_link_libraries(${PROJECT_NAME} glfw)
+target_link_libraries(${PROJECT_NAME} glad)
 
 
 #copy resources into built directory, simple copy in debug mode
