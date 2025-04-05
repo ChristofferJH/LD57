@@ -15,8 +15,9 @@ project ("LD57")
 #external libraries
 add_subdirectory(${PROJECT_SOURCE_DIR}/lib/glfw)
 add_subdirectory(${PROJECT_SOURCE_DIR}/lib/glad)
+add_subdirectory(${PROJECT_SOURCE_DIR}/lib/glm)
 include_directories(${PROJECT_SOURCE_DIR}/lib/miniaudio)
-
+include_directories(${PROJECT_SOURCE_DIR}/lib)
 
 #grab all cpp and hpp files in src
 
@@ -27,7 +28,7 @@ add_executable (${PROJECT_NAME} ${BUILD_EXECUTABLE_TYPE} ${SRC_FILES})
 
 target_link_libraries(${PROJECT_NAME} glfw)
 target_link_libraries(${PROJECT_NAME} glad)
-
+target_link_libraries(${PROJECT_NAME} glm)
 
 #copy resources into built directory, simple copy in debug mode
 if(${CMAKE_BUILD_TYPE} STREQUAL  "Release" AND WIN32)
